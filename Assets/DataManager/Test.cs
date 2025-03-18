@@ -8,6 +8,8 @@ class pp
 {
     public int a;
     public string b;
+    public List<int> list;
+    public Dictionary<int,string> dict;
     public pp(int a, string b)
     {
         this.a = a;
@@ -18,7 +20,7 @@ class pp
 
     }
 }
-
+ 
 struct TestStruct
 {
     public int a ;
@@ -47,6 +49,7 @@ public class Test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         // Type type = typeof(PlayerPManager);
         // Debug.Log(type.Name);
         // FieldInfo[] fieldInfos = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic|BindingFlags.Instance|BindingFlags.Static);   
@@ -73,11 +76,28 @@ public class Test : MonoBehaviour
     //     Debug.Log(c.b);
 
         //加载结构体数据
-        TestStruct a = new TestStruct(1,"one",5.0f,'c',5.0f);
-        PlayerPManager.Instance.SaveData(a,"one");
-        TestStruct ss = (TestStruct)PlayerPManager.Instance.LoadtData(typeof(TestStruct),"one");
-        Debug.Log("-------------------------------------");
-        Debug.Log(ss);
+        // TestStruct a = new TestStruct(1,"one",5.0f,'c',5.0f);
+        // PlayerPManager.Instance.SaveData(a,"one");
+        // TestStruct ss = (TestStruct)PlayerPManager.Instance.LoadtData(typeof(TestStruct),"one");
+        // Debug.Log("-------------------------------------");
+        // Debug.Log(ss);
+
+        // pp a = new pp(1,"2");
+        // a.list = new List<int>(new int[]{1,2,3,4,5});
+        // a.dict = new Dictionary<int, string>();
+        // a.dict.Add(1,"one");
+        // a.dict.Add(2,"two");
+        // a.dict.Add(3,"three");
+
+        // FieldInfo[] fieldInfos = typeof(pp).GetFields(BindingFlags.Public | BindingFlags.NonPublic|BindingFlags.Instance|BindingFlags.Static);
+        // foreach (FieldInfo fieldInfo in fieldInfos)
+        // {
+        //     Debug.Log(fieldInfo);
+        // }
+
+        PlayerPrefs.SetInt("one",1);
+        Debug.Log(PlayerPrefs.GetInt("one"));
+
 
     }
 
